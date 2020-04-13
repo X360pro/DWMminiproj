@@ -28,7 +28,10 @@ def algo():
             X = parse(filename, 3, 4)
             elbow(X)
             kmeans(X, n_clusters=5)
-            return render_template('result.html', image1 = 'elbow.png', image2 = 'kmeans_clusters.png')
+            text = open('static\summary.txt', 'r+')
+            content = text.read()
+            text.close()
+            return render_template('result.html', image1 = 'elbow.png', image2 = 'kmeans_clusters.png',text=content)
         return 'Nothing Selected'
         
 
